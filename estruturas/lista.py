@@ -1,4 +1,4 @@
-#
+# Implementação da estrutura de dados do tipo Lista
 # Baseado na implementação disponível em:
 # https://algoritmosempython.com.br/cursos/algoritmos-python/estruturas-dados/listas-encadeadas/
 #
@@ -11,7 +11,7 @@ class NodoLista:
         self.proximo = proximo_nodo
 
     """Gera o imprimível de um objeto NodoLista"""
-    def __repr__(self):
+    def __repr__(self) -> str:
         return "%s -> %s" % (self.dado, self.proximo)
 
 """Representa uma lista encadeada"""
@@ -20,8 +20,8 @@ class ListaEncadeada:
     def __init__(self):
         self.cabeca = None
 
-    """Torna o objeto imprímivel"""
-    def __repr__(self):
+    """Imprime o cabeca da lista"""
+    def __repr__(self) -> str:
         return "[" + str(self.cabeca) + "]"
 
     """Insere um novo dado ao final da lista"""
