@@ -14,7 +14,7 @@ class Pilha:
     def __init__(self):
         self.topo = None
     
-    """Imprime o topo da lista"""
+    """Imprime a pilha"""
     def __repr__(self) -> str:
         return "[Topo: " + str(self.topo) + "]"
     
@@ -23,3 +23,10 @@ class Pilha:
         novo_nodo = NodoPilha(dado)
         novo_nodo.proximo_nodo = self.topo
         self.topo = novo_nodo
+    
+    """Retira o dado que estiver no topo"""
+    def pop(self):
+        if (self.topo != None):
+            self.topo = self.topo.proximo_nodo
+        else:
+            raise Exception("Pilha vazia!")
