@@ -24,9 +24,11 @@ class Pilha:
         novo_nodo.proximo_nodo = self.topo
         self.topo = novo_nodo
     
-    """Retira o dado que estiver no topo"""
+    """Retira o dado que estiver no topo da pilha e o retorna"""
     def pop(self):
         if (self.topo != None):
+            popped = self.topo
             self.topo = self.topo.proximo_nodo
+            return popped
         else:
             raise Exception("Pilha vazia!")
