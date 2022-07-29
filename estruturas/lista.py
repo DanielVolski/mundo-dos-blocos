@@ -2,6 +2,7 @@
 # Baseado na implementação disponível em:
 # https://algoritmosempython.com.br/cursos/algoritmos-python/estruturas-dados/listas-encadeadas/
 #
+import copy
 
 """Representa um único nodo de uma lista encadeada"""
 class NodoLista:
@@ -12,7 +13,7 @@ class NodoLista:
 
     """Gera o imprimível de um objeto NodoLista"""
     def __repr__(self) -> str:
-        return "%s -> %s" % (self.dado, self.proximo)
+        return "%s" % (self.dado)
 
 """Representa uma lista encadeada"""
 class ListaEncadeada:
@@ -22,7 +23,12 @@ class ListaEncadeada:
 
     """Imprime o cabeca da lista"""
     def __repr__(self) -> str:
-        return "[" + str(self.cabeca) + "]"
+        nodo = copy.deepcopy(self.cabeca)
+        string = ""
+        while nodo:
+            string += str(nodo)
+            nodo = nodo.proximo
+        return string
 
     """Insere um novo dado ao final da lista"""
     def inserir(self, dado):

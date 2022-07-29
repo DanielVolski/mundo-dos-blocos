@@ -1,4 +1,5 @@
 # Implementação da estrutura de dados do tipo pilha
+import copy
 
 class NodoPilha:
     """Construtor do nodo da pilha"""
@@ -8,17 +9,21 @@ class NodoPilha:
     
     """Gera o imprimível de NodoPilha"""
     def __repr__(self) -> str:
-        return "%s -> %s" % (self.dado, self.proximo_nodo) 
+        return "%s" % (self.dado)
 
 class Pilha:
-
     def __init__(self):
         self.topo = None
         self.contador = 0
     
     """Imprime a pilha"""
     def __repr__(self) -> str:
-        return "[Topo: " + str(self.topo) + "]"
+        nodo = copy.deepcopy(self.topo)
+        string = ""
+        while nodo:
+            string += str(nodo)
+            nodo = nodo.proximo_nodo
+        return string
 
     def __eq__(self, outro):
         return str(self) == str(outro)
@@ -35,6 +40,7 @@ class Pilha:
         if (self.topo != None):
             popped = self.topo
             self.topo = self.topo.proximo_nodo
+            self.contador = self.contador - 1
             return popped
         else:
             raise Exception("Pilha vazia!")
