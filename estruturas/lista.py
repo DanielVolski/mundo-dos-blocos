@@ -30,7 +30,7 @@ class ListaEncadeada:
         novo.proximo = self.cabeca
         self.cabeca = novo
         
-     def busca(lista, valor):
+    def busca(lista, valor):
         atual = lista.cabeca
         while atual and atual.dado != valor:
             atual = atual.proximo
@@ -49,8 +49,8 @@ class ListaEncadeada:
                 anterior = atual
                 atual = atual.proximo
             # O nodo atual é o nodo a ser removido.
-            if atual:
-                anterior.proximo = atual.proximo
-            else:
+                if atual:
+                    anterior.proximo = atual.proximo
+                else:
             # O nodo atual é a cauda da lista.
-                anterior.proximo = None
+                    anterior.proximo = None
