@@ -11,18 +11,24 @@ class NodoPilha:
         return "%s -> %s" % (self.dado, self.proximo_nodo) 
 
 class Pilha:
+
     def __init__(self):
         self.topo = None
+        self.contador = 0
     
     """Imprime a pilha"""
     def __repr__(self) -> str:
         return "[Topo: " + str(self.topo) + "]"
+
+    def __eq__(self, outro):
+        return str(self) == str(outro)
     
     """Empilha um novo dado na estrutura"""
     def push(self, dado):
         novo_nodo = NodoPilha(dado)
         novo_nodo.proximo_nodo = self.topo
         self.topo = novo_nodo
+        self.contador = self.contador + 1
     
     """Retira o dado que estiver no topo da pilha e o retorna"""
     def pop(self):
