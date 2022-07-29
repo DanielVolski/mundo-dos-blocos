@@ -29,3 +29,28 @@ class ListaEncadeada:
         novo = NodoLista(dado)
         novo.proximo = self.cabeca
         self.cabeca = novo
+        
+     def busca(lista, valor):
+        atual = lista.cabeca
+        while atual and atual.dado != valor:
+            atual = atual.proximo
+        return atual
+
+    def remove(self, valor):
+        assert self.cabeca, "Impossível remover valor de lista vazia."
+        # Nodo a ser removido é a cabeça da lista.
+        if self.cabeca.dado == valor:
+             self.cabeca = self.cabeca.proximo
+        else:
+        # Encontra a posição do elemento a ser removido.
+           anterior = None
+           atual = self.cabeca
+           while atual and atual.dado != valor:
+                anterior = atual
+                atual = atual.proximo
+            # O nodo atual é o nodo a ser removido.
+            if atual:
+                anterior.proximo = atual.proximo
+            else:
+            # O nodo atual é a cauda da lista.
+                anterior.proximo = None
