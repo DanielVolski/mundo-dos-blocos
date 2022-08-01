@@ -1,3 +1,8 @@
+# Implementação principal
+# Para a busca em largura foram utilizados como referência:
+# O livro Algoritmos de Thomas Cormen
+# O site https://favtutor.com/blogs/breadth-first-search-python
+
 from estruturas.lista import ListaEncadeada
 from estruturas.pilha import Pilha
 import random
@@ -55,7 +60,7 @@ if __name__ == "__main__":
     estado_teste = [Pilha(), Pilha(), Pilha()]
 
     cria_estado_aleatorio(estado_ini)
-    cria_estado_obj(estado_obj)
+    cria_estado_aleatorio(estado_obj)
 
     print("Estado inicial: " + str(estado_ini))
     print("Estado objetivo:" + str(estado_obj))
