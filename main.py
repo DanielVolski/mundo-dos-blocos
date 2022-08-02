@@ -33,6 +33,7 @@ class Estado:
         while blocos:
             self.pilhas[1].push(blocos.pop())
 
+    # Retorna os vértices que podem ser gerados a partir do estado atual
     def expande(self):
         vertices = []
         for i in range(0, len(self.pilhas)):
@@ -47,18 +48,26 @@ class Estado:
                 for j in range(0, len(self.pilhas)):
                     # Se i for igual a j a pilha é a mesma da iteração do loop mais externo
                     if i != j:
+                        # É feita uma nova copia agora com o bloco já retirado
                         temp2 = copy.deepcopy(temp1)
+                        # Aponta o estado atual como pai
                         temp2.pai = self
+                        # Adiciona o bloco retirado de temp1 para o estado filho(temp2)
                         temp2.pilhas[j].push(bloco)
+                        # Anexa temp2 como um dos vertices filhos
                         vertices.append(temp2)
         return vertices
 
+    # Retorna uma lista com o caminho para o resultado
     def caminho(self) -> list:
         caminho = []
-        aux = self
-        while aux:
-            caminho.append(aux)
-            aux = aux.pai
+        vertice = self
+        # Enquanto vertice != de None
+        while vertice:
+            # Anexa o vértice na lista caminho
+            caminho.append(vertice)
+            # Atualiza para que o vertice aponte para seu pai
+            vertice = vertice.pai
         return caminho[::-1]
 
 def busca_largura(raiz, objetivo):
